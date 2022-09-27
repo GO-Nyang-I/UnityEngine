@@ -922,8 +922,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LoginButton: {fileID: 1039734454}
-  inputId: {fileID: 0}
-  inputPw: {fileID: 0}
+  inputId: {fileID: 1162990920}
+  inputPw: {fileID: 1526385351}
 --- !u!4 &737796079
 Transform:
   m_ObjectHideFlags: 0
