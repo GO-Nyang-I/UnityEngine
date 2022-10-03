@@ -23,6 +23,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Main/Scenes/MainScene.unity
     guid: df0f831b38dc1fd449fdf6b4d2ff43a1
+  - enabled: 1
+    path: Assets/Main/Scenes/PopupScene.unity
+    guid: 81621a1524035034e96b3015c83e7b07
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: d120475d3a603ea449ca74aa17aa9359, type: 2}
     com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: be57da084428acd45a2d07dae599f439, type: 2}
