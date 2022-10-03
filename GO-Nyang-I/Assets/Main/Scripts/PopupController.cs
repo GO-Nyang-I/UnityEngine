@@ -5,19 +5,20 @@ using UnityEngine;
 public class PopupController : MonoBehaviour
 {
     public GameObject _storePopup;
-    public GameObject _InventoryPopup;
+    public GameObject _inventoryPopup;
+    public GameObject _makingPopup;
 
     // Start is called before the first frame update
     void Start()
     {
-        _storePopup.SetActive(false);
-        _InventoryPopup.SetActive(false);
+        ExitAllPopup();
     }
 
     public void ExitAllPopup()
     {
         _storePopup.SetActive(false);
-        _InventoryPopup.SetActive(false);
+        _inventoryPopup.SetActive(false);
+        _makingPopup.SetActive(false);
     }
 
     public void LoadSettingPopup()
@@ -33,17 +34,21 @@ public class PopupController : MonoBehaviour
     public void LoadStorePopup()
     {
         _storePopup.SetActive(true);
-        _InventoryPopup.SetActive(false);
+        _inventoryPopup.SetActive(false);
+        _makingPopup.SetActive(false);
     }
 
     public void LoadInventoryPopup()
     {
         _storePopup.SetActive(false);
-        _InventoryPopup.SetActive(true);
+        _inventoryPopup.SetActive(true);
+        _makingPopup.SetActive(false);
     }
 
     public void LoadMakingPopup()
     {
-
+        _storePopup.SetActive(false);
+        _inventoryPopup.SetActive(false);
+        _makingPopup.SetActive(true);
     }
 }

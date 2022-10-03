@@ -74,8 +74,8 @@ public class UIButtonManager : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.Escape))
             {
-                _gameManager.ExitAddictivePopupScene();
                 _popupManager.GetComponent<PopupController>().ExitAllPopup();
+                _gameManager.ExitAddictivePopupScene();
             }
         }
     }
