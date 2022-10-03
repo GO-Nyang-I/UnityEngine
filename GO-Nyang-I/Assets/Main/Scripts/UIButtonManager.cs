@@ -42,7 +42,6 @@ public class UIButtonManager : MonoBehaviour
     {
         _gameManager.LoadAddictivePopupScene();
         _popupManager.GetComponent<PopupController>().LoadStorePopup();
-        Debug.Log("OnClickedStoreBtn");
     }
 
     void OnClickedInventoryBtn()

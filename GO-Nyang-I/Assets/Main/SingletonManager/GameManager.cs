@@ -19,8 +19,6 @@ public class GameManager : Singleton<GameManager>
     public void LoadAddictivePopupScene()
     {
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("PopupScene"));
-        Debug.Log("LoadAddictivePopupScene");
-        Debug.Log(SceneManager.GetActiveScene());
     }
 
     public void ExitAddictivePopupScene()
