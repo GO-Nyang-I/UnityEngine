@@ -36,6 +36,7 @@ public class PopupController : MonoBehaviour
         _storePopup.SetActive(true);
         _inventoryPopup.SetActive(false);
         _makingPopup.SetActive(false);
+        _storePopup.GetComponent<Assets.Main.Scripts.StoreController>().Initialize();
     }
 
     public void LoadInventoryPopup()

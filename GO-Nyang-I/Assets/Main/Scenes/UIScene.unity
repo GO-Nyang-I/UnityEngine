@@ -2265,10 +2265,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d89d866bdfcf7f243b335aa59c7e7bf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _coffeeCount: {fileID: 11613582}
   _coffeePlusBtn: {fileID: 217650777}
   _coffeeMinusBtn: {fileID: 209468221}
-  _coffeeCount: {fileID: 11613582}
   _makingConfirmBtn: {fileID: 182208841}
+  CoffeeCount: 0
+  TotalPrice: 0
 --- !u!1 &436863063
 GameObject:
   m_ObjectHideFlags: 0
@@ -8778,6 +8780,7 @@ GameObject:
   - component: {fileID: 1690251465}
   - component: {fileID: 1690251467}
   - component: {fileID: 1690251466}
+  - component: {fileID: 1690251468}
   m_Layer: 5
   m_Name: StorePopup
   m_TagString: Untagged
@@ -8851,6 +8854,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1690251464}
   m_CullTransparentMesh: 1
+--- !u!114 &1690251468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690251464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bb6eba8d402491458b905e416badc1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _waterCount: {fileID: 1170515750}
+  _waterPlusBtn: {fileID: 1763026687}
+  _waterMinusBtn: {fileID: 317712519}
+  _coldbrewCount: {fileID: 1653299752}
+  _coldbrewPlusBtn: {fileID: 1935852800}
+  _coldbrewMinusBtn: {fileID: 1097881836}
+  _coinTotal: {fileID: 302634932}
+  _buyBtn: {fileID: 679996390}
+  WaterCount: 0
+  ColdbrewCount: 0
+  TotalCoin: 0
 --- !u!1 &1707230153
 GameObject:
   m_ObjectHideFlags: 0
@@ -8937,6 +8963,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1756902527}
   - component: {fileID: 1756902528}
+  - component: {fileID: 1756902529}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -8973,6 +9000,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7593dba7e5f0c2743937f2672940b593, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1756902529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756902526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed1ac6f92ec112847a1ec464059a03a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1763026685

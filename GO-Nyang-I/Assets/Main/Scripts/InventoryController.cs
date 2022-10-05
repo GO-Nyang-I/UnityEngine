@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryController : MonoBehaviour
+namespace Assets.Main.Scripts
 {
-    public TMPro.TMP_Text _waterCount;
-    public TMPro.TMP_Text _coldBrewCount;
-    public TMPro.TMP_Text _coffeeCount;
+    public class InventoryController : GameController
+    {
+        public TMPro.TMP_Text _waterCount;
+        public TMPro.TMP_Text _coldBrewCount;
+        public TMPro.TMP_Text _coffeeCount;
 
-    
+    }
 }
+
