@@ -40,13 +40,11 @@ public class UIButtonManager : MonoBehaviour
 
     void OnClickedStoreBtn()
     {
-        _gameManager.LoadAddictivePopupScene();
         _popupManager.GetComponent<PopupController>().LoadStorePopup();
     }
 
     void OnClickedInventoryBtn()
     {
-        _gameManager.LoadAddictivePopupScene();
         _popupManager.GetComponent<PopupController>().LoadInventoryPopup();
     }
 
@@ -62,7 +60,6 @@ public class UIButtonManager : MonoBehaviour
 
     void OnClickedMakingBtn()
     {
-        _gameManager.LoadAddictivePopupScene();
         _popupManager.GetComponent<PopupController>().LoadMakingPopup();
     }
 
@@ -74,7 +71,6 @@ public class UIButtonManager : MonoBehaviour
             if (Input.GetKey(KeyCode.Escape))
             {
                 _popupManager.GetComponent<PopupController>().ExitAllPopup();
-                _gameManager.ExitAddictivePopupScene();
             }
         }
     }
