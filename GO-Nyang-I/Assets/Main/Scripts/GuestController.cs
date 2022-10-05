@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class GuestController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private GameObject AudioManager;
+
+    private void Start()
     {
-        
+        AudioManager = GameObject.Find("AudioManager");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnTouchedDrink()
     {
-        
+        AudioManager.GetComponent<AudioController>().OnPlayCatSound();
     }
 }

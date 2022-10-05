@@ -50,10 +50,11 @@ public class LoginManager : MonoBehaviour
         _existUserPopup.SetActive(false);
         _signupPopup.SetActive(false);
 
-        // 메인 화면의 로그인 버튼을 누르면 OnLogin() 호출
+        // 메인 홤녀의 Login 버튼을 누를 경우
         _loginButton.onClick.AddListener(OnLogin);
-
+        // 메인 화면의 Signup 버튼을 누를 경우
         _registButton.onClick.AddListener(LoadSignupPopup);
+        // SignupPop 의 Confirm 버튼을 누를 경우
         _registConfirmButton.onClick.AddListener(OnRegisterUser);
     }
 
