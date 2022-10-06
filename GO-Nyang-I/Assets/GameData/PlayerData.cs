@@ -22,11 +22,13 @@ namespace Assets.GameData
         public int PlayerCoin;
         public int PlayerCan;
 
-        public Dictionary<string, int> ItemList;
+        public int Water;
+        public int Coldbrew;
+        public int Coffee;
 
         public PlayerData()
         {
-            ItemList = new Dictionary<string, int>();
+
         }
 
         public void ClearAllData()
@@ -36,7 +38,9 @@ namespace Assets.GameData
             PlayerCoin = 0;
             PlayerCan = 0;
 
-            ItemList = new Dictionary<string, int>();
+            Water = 0;
+            Coldbrew = 0;
+            Coffee = 0;
         }
 
         public bool UpdatePlayerData(int Step, int Star, int Coin, int Can)

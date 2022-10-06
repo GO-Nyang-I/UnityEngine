@@ -44,6 +44,7 @@ public class PopupController : MonoBehaviour
         _storePopup.SetActive(false);
         _inventoryPopup.SetActive(true);
         _makingPopup.SetActive(false);
+        _inventoryPopup.GetComponent<Assets.Main.Scripts.InventoryController>().Initialize();
     }
 
     public void LoadMakingPopup()
@@ -51,5 +52,6 @@ public class PopupController : MonoBehaviour
         _storePopup.SetActive(false);
         _inventoryPopup.SetActive(false);
         _makingPopup.SetActive(true);
+        _makingPopup.GetComponent<Assets.Main.Scripts.MakingController>().Initialize();
     }
 }

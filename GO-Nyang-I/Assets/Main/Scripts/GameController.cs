@@ -21,9 +21,9 @@ namespace Assets.Main.Scripts
         protected const string ITEM_DATA_JSON_BUNDLE_NAME = "ItemDataJson";
 
         // Dependencies 
-        protected IUserGameplayDataProvider _userGameplayData;
+        protected static IUserGameplayDataProvider _userGameplayData;
 
-        private GameData.PlayerData _playerData;
+        protected static GameData.PlayerData _playerData;
 
         void Start()
         {
@@ -118,23 +118,6 @@ namespace Assets.Main.Scripts
             });
         }
 
-        // 재료 구입
-        public void BuyIngredients()
-        {
-            // 
-        }
-
-        // 완제품 제조
-        public void MakeProduct()
-        {
-
-        }
-
-        // 완제품 판매
-        public void SellProduct()
-        {
-
-        }
     }
 }
 

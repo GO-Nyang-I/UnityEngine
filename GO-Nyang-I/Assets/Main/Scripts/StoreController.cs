@@ -93,7 +93,9 @@ namespace Assets.Main.Scripts
 
         void OnBuyIngredients()
         {
-            //BuyIngredients(WaterCount, ColdbrewCount);
+            _playerData.PlayerCoin -= TotalCoin;
+            _playerData.Water += WaterCount;
+            _playerData.Coldbrew += ColdbrewCount;
         }
 
     }

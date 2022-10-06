@@ -4782,6 +4782,7 @@ GameObject:
   - component: {fileID: 749421435}
   - component: {fileID: 749421434}
   - component: {fileID: 749421433}
+  - component: {fileID: 749421436}
   m_Layer: 5
   m_Name: DataManager
   m_TagString: Untagged
@@ -4875,6 +4876,22 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 3
   m_TargetDisplay: 0
+--- !u!114 &749421436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749421431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec1c2173b0efa594b8d7359a74234147, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _step: {fileID: 238975740}
+  _star: {fileID: 1253214994}
+  _coin: {fileID: 667797429}
+  _can: {fileID: 617384301}
 --- !u!1 &790869038
 GameObject:
   m_ObjectHideFlags: 0
