@@ -35,7 +35,7 @@ public class UIButtonManager : MonoBehaviour
 
     void OnClickedMapBtn()
     {
-
+        _popupManager.GetComponent<PopupController>().LoadMapPopup();
     }
 
     void OnClickedStoreBtn()
