@@ -14,11 +14,15 @@ namespace Assets.Main.Scripts
     {
         // 커피
         public TMPro.TMP_Text _coffeeCount;
+        public TMPro.TMP_Text _coffeeRecipeWater;
+        public TMPro.TMP_Text _coffeeRecipeColdbrew;
         public Button _coffeePlusBtn;
         public Button _coffeeMinusBtn;
 
         // 아이스티
         public TMPro.TMP_Text _iceteaCount;
+        public TMPro.TMP_Text _iceteaRecipeWater;
+        public TMPro.TMP_Text _iceteaRecipeLipton;
         public Button _iceteaPlusBtn;
         public Button _iceteaMinusBtn;
 
@@ -31,6 +35,11 @@ namespace Assets.Main.Scripts
 
         [SerializeField] private const int CoffeePrice = 30;
         [SerializeField] private const int IceteaPrice = 20;
+
+        [SerializeField] private const string RedColorCode = "#FF5733";
+        [SerializeField] private const string BlackColorCode = "#5E6164";
+        Color RedColor;
+        Color BlackColor;
 
         // Start is called before the first frame update
         void Start()
@@ -57,6 +66,22 @@ namespace Assets.Main.Scripts
             {
                 CoffeeCount++;
                 TotalPrice += CoffeePrice;
+                                
+                if (_playerData.Coldbrew < CoffeeCount)
+                {
+                    if (ColorUtility.TryParseHtmlString(RedColorCode, out RedColor))
+                    {
+                        _coffeeRecipeColdbrew.color = RedColor;
+                    }
+                }
+
+                if (_playerData.Water < CoffeeCount)
+                {
+                    if (ColorUtility.TryParseHtmlString(RedColorCode, out RedColor))
+                    {
+                        _coffeeRecipeWater.color = RedColor;
+                    }
+                }
             }
             _coffeeCount.text = CoffeeCount.ToString();
         }
@@ -67,6 +92,22 @@ namespace Assets.Main.Scripts
             {
                 CoffeeCount--;
                 TotalPrice -= CoffeePrice;
+
+                if (_playerData.Coldbrew >= CoffeeCount)
+                {
+                    if (ColorUtility.TryParseHtmlString(BlackColorCode, out BlackColor))
+                    {
+                        _coffeeRecipeColdbrew.color = BlackColor;
+                    }
+                }
+
+                if (_playerData.Water >= CoffeeCount)
+                {
+                    if (ColorUtility.TryParseHtmlString(BlackColorCode, out BlackColor))
+                    {
+                        _coffeeRecipeWater.color = BlackColor;
+                    }
+                }
             }
             _coffeeCount.text = CoffeeCount.ToString();
         }
@@ -77,6 +118,22 @@ namespace Assets.Main.Scripts
             {
                 IceteaCount++;
                 TotalPrice += IceteaPrice;
+
+                if (_playerData.Lipton < IceteaCount)
+                {
+                    if (ColorUtility.TryParseHtmlString(RedColorCode, out RedColor))
+                    {
+                        _iceteaRecipeLipton.color = RedColor;
+                    }
+                }
+
+                if (_playerData.Water < IceteaCount)
+                {
+                    if (ColorUtility.TryParseHtmlString(RedColorCode, out RedColor))
+                    {
+                        _iceteaRecipeWater.color = RedColor;
+                    }
+                }
             }
             _iceteaCount.text = IceteaCount.ToString();
         }
@@ -87,6 +144,22 @@ namespace Assets.Main.Scripts
             {
                 IceteaCount--;
                 TotalPrice -= IceteaPrice;
+
+                if (_playerData.Lipton >= (IceteaCount*2))
+                {
+                    if (ColorUtility.TryParseHtmlString(BlackColorCode, out BlackColor))
+                    {
+                        _iceteaRecipeLipton.color = BlackColor;
+                    }
+                }
+
+                if (_playerData.Water >= IceteaCount)
+                {
+                    if (ColorUtility.TryParseHtmlString(BlackColorCode, out BlackColor))
+                    {
+                        _iceteaRecipeWater.color = BlackColor;
+                    }
+                }
             }
             _iceteaCount.text = IceteaCount.ToString();
         }
@@ -96,25 +169,6 @@ namespace Assets.Main.Scripts
             _playerData.Coffee += CoffeeCount;
             _playerData.Icetea += IceteaCount;
             _playerData.PlayerCan += TotalPrice;
-
-            UserGameplayDataBundleItemValue itemChange = new UserGameplayDataBundleItemValue
-            {
-                BundleName = PLAYER_DATA_BUNDLE_NAME,
-                BundleItemKey = ITEM_DATA_JSON_BUNDLE_NAME,
-                BundleItemValue = JsonUtility.ToJson(_playerData)
-            };
-
-            _userGameplayData.UpdateItem(itemChange, result =>
-            {
-                if (result != GameKitErrors.GAMEKIT_SUCCESS)
-                {
-                    Debug.LogError(
-                        $"Could not update the {PLAYER_DATA_BUNDLE_NAME} bundle with bundle item {ITEM_DATA_JSON_BUNDLE_NAME}: " +
-                        $"{GameKitErrorConverter.GetErrorName(result)}.");
-                }
-
-                Debug.Log($"Update player highscore bundles.");
-            });
         }
 
     }

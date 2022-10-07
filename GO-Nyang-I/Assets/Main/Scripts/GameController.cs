@@ -25,6 +25,8 @@ namespace Assets.Main.Scripts
 
         protected static GameData.PlayerData _playerData;
 
+        private int QuitEscape = 0;
+
         [SerializeField] private const int CoffeeExp = 3;
         [SerializeField] private const int IceteaExp = 5;
 
@@ -41,6 +43,27 @@ namespace Assets.Main.Scripts
                    // Non-recoverable error. Here you should display an error message informing the player that it isn't possible to continue.
                    Debug.LogError("Attempt to sync gameplay data failed.");
                });
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                QuitEscape++;
+                if (!IsInvoking("DoubleClick"))
+                    Invoke("DoubleClick", 1.0f);
+            }
+            else if (QuitEscape == 2)
+            {
+                GameExit();
+                CancelInvoke("DoubleClick");
+                Application.Quit();
+            }
+        }
+
+        void DoubleClick()
+        {
+            QuitEscape = 0;
         }
 
         private void CreatePlayerDataBundle()
@@ -121,19 +144,53 @@ namespace Assets.Main.Scripts
             });
         }
 
+        public void GameExit()
+        {
+            UserGameplayDataBundleItemValue itemChange = new UserGameplayDataBundleItemValue
+            {
+                BundleName = PLAYER_DATA_BUNDLE_NAME,
+                BundleItemKey = ITEM_DATA_JSON_BUNDLE_NAME,
+                BundleItemValue = JsonUtility.ToJson(_playerData)
+            };
+
+            _userGameplayData.UpdateItem(itemChange, result =>
+            {
+                if (result != GameKitErrors.GAMEKIT_SUCCESS)
+                {
+                    Debug.LogError(
+                        $"Could not update the {PLAYER_DATA_BUNDLE_NAME} bundle with bundle item {ITEM_DATA_JSON_BUNDLE_NAME}: " +
+                        $"{GameKitErrorConverter.GetErrorName(result)}.");
+                }
+
+                Debug.Log($"Update player highscore bundles.");
+            });
+        }
+
         public void Buy(int DrinkId)
         {
             if (DrinkId == 0)
             {
-                _playerData.Coffee--;
-                _playerData.PlayerStar += (_playerData.Coffee * CoffeeExp);
+                if (_playerData.Coffee > 0)
+                {
+                    _playerData.Coffee--;
+                    _playerData.PlayerStar += (_playerData.Coffee * CoffeeExp);
+                }
             }
             else if (DrinkId == 1)
             {
-                _playerData.Icetea--;
-                _playerData.PlayerStar += (_playerData.Icetea * IceteaExp);
+                if (_playerData.Icetea > 0)
+                {
+                    _playerData.Icetea--;
+                    _playerData.PlayerStar += (_playerData.Icetea * IceteaExp);
+                }
             }
         }
+
+        public void Exchange()
+        {
+            _playerData.PlayerCoin += (_playerData.PlayerStep / 10);
+        }
     }
+        
 }
 
