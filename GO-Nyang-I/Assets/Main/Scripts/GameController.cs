@@ -55,6 +55,7 @@ namespace Assets.Main.Scripts
             }
             else if (QuitEscape == 2)
             {
+                GameExit();
                 CancelInvoke("DoubleClick");
                 Application.Quit();
             }
@@ -140,6 +141,28 @@ namespace Assets.Main.Scripts
                 }
 
                 _playerData = JsonUtility.FromJson<GameData.PlayerData>(result.ResponseValue);
+            });
+        }
+
+        public void GameExit()
+        {
+            UserGameplayDataBundleItemValue itemChange = new UserGameplayDataBundleItemValue
+            {
+                BundleName = PLAYER_DATA_BUNDLE_NAME,
+                BundleItemKey = ITEM_DATA_JSON_BUNDLE_NAME,
+                BundleItemValue = JsonUtility.ToJson(_playerData)
+            };
+
+            _userGameplayData.UpdateItem(itemChange, result =>
+            {
+                if (result != GameKitErrors.GAMEKIT_SUCCESS)
+                {
+                    Debug.LogError(
+                        $"Could not update the {PLAYER_DATA_BUNDLE_NAME} bundle with bundle item {ITEM_DATA_JSON_BUNDLE_NAME}: " +
+                        $"{GameKitErrorConverter.GetErrorName(result)}.");
+                }
+
+                Debug.Log($"Update player highscore bundles.");
             });
         }
 
