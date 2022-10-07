@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d8981ab949c70004bb757e8bd60874f7
+guid: 813bc27710b3e224d8314fc3c6c78a07
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,43 +117,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MainCharacter_0
+      name: Guest_01_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 17
-        width: 197
-        height: 216
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+        x: 14
+        y: 1
+        width: 173
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14f6d8784c89f5b4f8a99807ab820880
-      internalID: 471861128
+      spriteID: 51fe3a7c3c867e34f8f61aba60c5a7b7
+      internalID: 1228411111
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MainCharacter_4
+      name: Guest_01_1
       rect:
         serializedVersion: 2
-        x: 198
-        y: 17
-        width: 197
-        height: 216
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+        x: 201
+        y: 1
+        width: 173
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40b29a8e356d5cb4e8f385dbc8e8b516
-      internalID: -1299670595
+      spriteID: 431dbdad7cf92d94eabf610994c2efc6
+      internalID: -723428388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_01_2
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 1
+        width: 173
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb964cd3353b59441906cd92555ec0ad
+      internalID: 417426191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guest_01_3
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 1
+        width: 173
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b897727121d7cf44a22da77e6745be7
+      internalID: 347315680
       vertices: []
       indices: 
       edges: []
@@ -169,14 +211,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      MainCharacter_3: 1511016979
-      MainCharacter_2: -1117787626
-      MainCharacter_5: 905507765
-      MainCharacter_6: -890696721
-      MainCharacter_4: -1299670595
-      MainCharacter_0: 471861128
-      MainCharacter_1: -2117457806
-      MainCharacter_7: -278636848
+      Guest_01_0: 1228411111
+      Guest_01_3: 347315680
+      Guest_01_1: -723428388
+      Guest_01_2: 417426191
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 1
