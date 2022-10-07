@@ -1193,7 +1193,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &426651101
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1789,10 +1789,11 @@ MonoBehaviour:
   _loginPasswordInputField: {fileID: 412174791}
   _popupSet: {fileID: 426651100}
   _signupPopup: {fileID: 500950504}
-  _existUserPopup: {fileID: 1365095690}
+  _signupResultPopup: {fileID: 1365095690}
   _resisterUserNameInputField: {fileID: 2143371022}
   _resisterPasswordInputField: {fileID: 1488659901}
   _registConfirmButton: {fileID: 304267879}
+  _signupResultCode: {fileID: 1492654406}
 --- !u!4 &737796079
 Transform:
   m_ObjectHideFlags: 0
@@ -2573,7 +2574,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uCDE8\uC18C"
+  m_text: "\uD655\uC778"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2555da72b35584c4b80844f3b6cae547, type: 2}
   m_sharedMaterial: {fileID: -527731310050712953, guid: 2555da72b35584c4b80844f3b6cae547, type: 2}
@@ -3114,7 +3115,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1365095691
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3401,8 +3402,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uD68C\uC6D0\uC774 \uC544\uB2D9\uB2C8\uB2E4.\n\uBA54\uC778\uD654\uBA74\uC5D0\uC11C
-    '\uD68C\uC6D0\uAC00\uC785 \uD558\uAE30' \uBC84\uD2BC\uC744 \uB20C\uB7EC \uAC00\uC785\uD574\uC8FC\uC138\uC694."
+  m_text: "\uD68C\uC6D0\uAC00\uC785 \uD574\uC8FC\uC138\uC694."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2555da72b35584c4b80844f3b6cae547, type: 2}
   m_sharedMaterial: {fileID: -527731310050712953, guid: 2555da72b35584c4b80844f3b6cae547, type: 2}
@@ -3436,7 +3436,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 8
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
