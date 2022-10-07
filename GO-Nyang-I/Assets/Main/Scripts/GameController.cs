@@ -25,6 +25,9 @@ namespace Assets.Main.Scripts
 
         protected static GameData.PlayerData _playerData;
 
+        [SerializeField] private const int CoffeeExp = 3;
+        [SerializeField] private const int IceteaExp = 5;
+
         void Start()
         {
             _playerData = new GameData.PlayerData();
@@ -118,6 +121,19 @@ namespace Assets.Main.Scripts
             });
         }
 
+        public void Buy(int DrinkId)
+        {
+            if (DrinkId == 0)
+            {
+                _playerData.Coffee--;
+                _playerData.PlayerStar += (_playerData.Coffee * CoffeeExp);
+            }
+            else if (DrinkId == 1)
+            {
+                _playerData.Icetea--;
+                _playerData.PlayerStar += (_playerData.Icetea * IceteaExp);
+            }
+        }
     }
 }
 

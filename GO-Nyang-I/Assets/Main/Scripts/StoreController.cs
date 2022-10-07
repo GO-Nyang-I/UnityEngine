@@ -17,16 +17,23 @@ namespace Assets.Main.Scripts
         public Button _coldbrewPlusBtn;
         public Button _coldbrewMinusBtn;
 
+        // 냥톤
+        public TMPro.TMP_Text _liptonCount;
+        public Button _liptonPlusBtn;
+        public Button _liptonMinusBtn;
+
         // 구입
         public TMPro.TMP_Text _coinTotal;    // 합계 금액
         public Button _buyBtn;               // 구입
 
         [SerializeField] private int WaterCount = 0;
         [SerializeField] private int ColdbrewCount = 0;
+        [SerializeField] private int LiptonCount = 0;
         [SerializeField] private int TotalCoin = 0;
 
         [SerializeField] private const int WaterPrice = 10;
         [SerializeField] private const int ColdbrewPrice = 10;
+        [SerializeField] private const int LiptonPrice = 5;
 
         void Start()
         {
@@ -34,6 +41,8 @@ namespace Assets.Main.Scripts
             _waterMinusBtn.onClick.AddListener(OnMinusWaterCount);
             _coldbrewPlusBtn.onClick.AddListener(OnPlusColdbrewCount);
             _coldbrewMinusBtn.onClick.AddListener(OnMinusColdbrewCount);
+            _liptonPlusBtn.onClick.AddListener(OnPlusLiptonCount);
+            _liptonMinusBtn.onClick.AddListener(OnMinusLiptonCount);
             _buyBtn.onClick.AddListener(OnBuyIngredients);
         }
 
@@ -41,9 +50,11 @@ namespace Assets.Main.Scripts
         {
             WaterCount = 0;
             ColdbrewCount = 0;
+            LiptonCount = 0;
             TotalCoin = 0;
             _waterCount.text = WaterCount.ToString();
             _coldbrewCount.text = ColdbrewCount.ToString();
+            _liptonCount.text = LiptonCount.ToString();
             _coinTotal.text = TotalCoin.ToString();
         }
 
@@ -91,11 +102,34 @@ namespace Assets.Main.Scripts
             _coinTotal.text = TotalCoin.ToString();
         }
 
+        void OnPlusLiptonCount()
+        {
+            if (LiptonCount < 10)
+            {
+                LiptonCount++;
+                TotalCoin += LiptonPrice;
+            }
+            _liptonCount.text = LiptonCount.ToString();
+            _coinTotal.text = TotalCoin.ToString();
+        }
+
+        void OnMinusLiptonCount()
+        {
+            if (LiptonCount > 0)
+            {
+                LiptonCount--;
+                TotalCoin -= LiptonPrice;
+            }
+            _liptonCount.text = LiptonCount.ToString();
+            _coinTotal.text = TotalCoin.ToString();
+        }
+
         void OnBuyIngredients()
         {
             _playerData.PlayerCoin -= TotalCoin;
             _playerData.Water += WaterCount;
             _playerData.Coldbrew += ColdbrewCount;
+            _playerData.Lipton += LiptonCount;
         }
 
     }

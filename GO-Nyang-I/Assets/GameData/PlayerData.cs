@@ -24,7 +24,9 @@ namespace Assets.GameData
 
         public int Water;
         public int Coldbrew;
+        public int Lipton;
         public int Coffee;
+        public int Icetea;
 
         public PlayerData()
         {
@@ -40,7 +42,9 @@ namespace Assets.GameData
 
             Water = 0;
             Coldbrew = 0;
+            Lipton = 0;
             Coffee = 0;
+            Icetea = 0;
         }
 
         public bool UpdatePlayerData(int Step, int Star, int Coin, int Can)
