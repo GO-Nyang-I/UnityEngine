@@ -2970,9 +2970,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _coffeeCount: {fileID: 11613582}
+  _coffeeRecipeWater: {fileID: 557854156}
+  _coffeeRecipeColdbrew: {fileID: 1980234223}
   _coffeePlusBtn: {fileID: 217650777}
   _coffeeMinusBtn: {fileID: 209468221}
   _iceteaCount: {fileID: 40663397}
+  _iceteaRecipeWater: {fileID: 104914416}
+  _iceteaRecipeLipton: {fileID: 882761054}
   _iceteaPlusBtn: {fileID: 1771830147}
   _iceteaMinusBtn: {fileID: 916972261}
   _makingConfirmBtn: {fileID: 182208841}
@@ -3984,7 +3988,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &514582514
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6142,6 +6146,7 @@ GameObject:
   - component: {fileID: 749421435}
   - component: {fileID: 749421434}
   - component: {fileID: 749421433}
+  - component: {fileID: 749421436}
   m_Layer: 5
   m_Name: DataManager
   m_TagString: Untagged
@@ -6235,6 +6240,26 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 3
   m_TargetDisplay: 0
+--- !u!114 &749421436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749421431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec1c2173b0efa594b8d7359a74234147, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _step: {fileID: 238975740}
+  _star: {fileID: 1253214994}
+  _coin: {fileID: 667797429}
+  _can: {fileID: 617384301}
+  StepCount: -1
+  StarCount: -1
+  CoinCount: -1
+  CanCount: -1
 --- !u!1 &771545055
 GameObject:
   m_ObjectHideFlags: 0
@@ -10090,10 +10115,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97092521916fc0646bd0c3b5fc9ef287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _stepPopup: {fileID: 514582513}
   _storePopup: {fileID: 1690251464}
   _inventoryPopup: {fileID: 862443652}
   _makingPopup: {fileID: 374784432}
   _mapPopup: {fileID: 1668625543}
+  _stepPopupExitBtn: {fileID: 268573939}
 --- !u!1 &1351811051
 GameObject:
   m_ObjectHideFlags: 0
