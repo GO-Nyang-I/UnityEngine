@@ -33,9 +33,12 @@ public class GuestController : MonoBehaviour
 
     public void OnTouchedDrink()
     {
-        GameControl.GetComponent<Assets.Main.Scripts.GameController>().Buy(DrinkId);
-        AudioManager.GetComponent<AudioController>().OnPlayCatSound();
-        Bubble.gameObject.SetActive(false);
+        bool IsBuy = GameControl.GetComponent<Assets.Main.Scripts.GameController>().Buy(DrinkId);
+        if (IsBuy == true)
+        {
+            AudioManager.GetComponent<AudioController>().OnPlayCatSound();
+            Bubble.gameObject.SetActive(false);
+        }
     }
 
     private void FixedUpdate()

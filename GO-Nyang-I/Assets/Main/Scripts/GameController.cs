@@ -166,14 +166,21 @@ namespace Assets.Main.Scripts
             });
         }
 
-        public void Buy(int DrinkId)
+        public bool Buy(int DrinkId)
         {
+            bool IsOkay = false;
+
             if (DrinkId == 0)
             {
                 if (_playerData.Coffee > 0)
                 {
                     _playerData.Coffee--;
                     _playerData.PlayerStar += (_playerData.Coffee * CoffeeExp);
+                    IsOkay = true;
+                }
+                else
+                {
+                    IsOkay = false;
                 }
             }
             else if (DrinkId == 1)
@@ -182,12 +189,19 @@ namespace Assets.Main.Scripts
                 {
                     _playerData.Icetea--;
                     _playerData.PlayerStar += (_playerData.Icetea * IceteaExp);
+                    IsOkay = true;
+                }
+                else
+                {
+                    IsOkay = false;
                 }
             }
+            return IsOkay;
         }
 
         public void Exchange()
         {
+            _playerData.PlayerStep = 4783;
             _playerData.PlayerCoin += (_playerData.PlayerStep / 10);
         }
     }
