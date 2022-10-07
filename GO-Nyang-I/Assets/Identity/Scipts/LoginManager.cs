@@ -96,7 +96,7 @@ public class LoginManager : MonoBehaviour
         if (ResultCode == GameKitErrors.GAMEKIT_SUCCESS)
         {
             Debug.Log("UserRegistration Success");
-            _signupResultCode.text = "회원가입에 성공했습니다.";
+            _signupResultCode.text = "회원가입에\n성공했습니다.";
         }
         else if (ResultCode == GameKitErrors.GAMEKIT_ERROR_MALFORMED_PASSWORD)
         {
