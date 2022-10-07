@@ -8,8 +8,7 @@ public class LoadingSceneController : MonoBehaviour
 {
     static string nextScene;
 
-    [SerializeField]
-    Image progressBar;
+    private float time;
 
     public static void LoadScene(string sceneName)
     {
@@ -17,29 +16,13 @@ public class LoadingSceneController : MonoBehaviour
         SceneManager.LoadScene("LoadingScene");
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
-        StartCoroutine(LoadSceneProcess());
-    }
+        time += Time.deltaTime;
 
-    IEnumerator LoadSceneProcess()
-    {
-        AsyncOperation op = SceneManager.LoadSceneAsync(nextScene);
-        op.allowSceneActivation = false;
-
-        float timer = 0.0f;
-
-        while(!op.isDone)
+        if(time > 5.0f)
         {
-            yield return null;
-
-            timer += Time.unscaledDeltaTime;
-            if (timer >= 5f)
-            {
-                op.allowSceneActivation = true;
-                yield break;
-            }
+            SceneManager.LoadScene(nextScene);
         }
     }
 }
