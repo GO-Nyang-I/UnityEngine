@@ -108,6 +108,11 @@ public class LoginManager : MonoBehaviour
             Debug.Log("UserRegistration Fail: GAMEKIT_ERROR_MALFORMED_USERNAME");
             _signupResultCode.text = "이미 가입된\n사용자입니다.";
         }
+        else
+        {
+            Debug.Log("UserRegistration Fail");
+            _signupResultCode.text = "회원가입에 실패했습니다.";
+        }
         LoadResultCode();
     }
 
@@ -121,8 +126,15 @@ public class LoginManager : MonoBehaviour
         }
         else if (ResultCode == GameKitErrors.GAMEKIT_ERROR_LOGIN_FAILED)
         {
-            Debug.Log("UserLogin Success");
+            Debug.Log("UserLogin Fail : GAMEKIT_ERROR_LOGIN_FAILED");
             _signupResultCode.text = "없는 사용자입니다. \n 회원가입을 해주세요.";
+            ClearLoginUser();
+            LoadResultCode();
+        }
+        else
+        {
+            Debug.Log("UserLogin Fail");
+            _signupResultCode.text = "회원가입 해주세요.";
             ClearLoginUser();
             LoadResultCode();
         }
