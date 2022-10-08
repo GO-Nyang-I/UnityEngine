@@ -14,8 +14,11 @@ public class GuestController : MonoBehaviour
 
     public int DrinkId;
     bool IsTrigger = false;
-    bool IsTriggerH = false;
-    bool IsTriggerV = false;
+    bool StartTrigger = false;
+    bool IsTriggerH_R = false;
+    bool IsTriggerH_L = false;
+    bool IsTriggerV_T = false;
+    bool IsTriggerV_B = false;
 
     private GameObject AudioManager;
     private GameObject GameControl;
@@ -45,53 +48,80 @@ public class GuestController : MonoBehaviour
     {
         Guest.velocity = new Vector2(nextMoveX, nextMoveY);
 
+        if (StartTrigger == true)
+        {
+            if (Bubble.gameObject.activeSelf == true)
+            {
+                nextMoveX = -1;
+            }
+            CancelInvoke();
+            Invoke("Think", 5);
+            StartTrigger = false;
+        }
+
         if (IsTrigger == true)
         {
-            if (IsTriggerH == true)
+            if ((IsTriggerH_R == true) || (IsTriggerH_L == true))
             {
                 if (Bubble.gameObject.activeSelf == true)
                 {
                     nextMoveX *= -1;
-                    if (nextMoveX == 1)
-                    {
-                        spriteRenderer.flipX = false;
-
-                    }
-                    if (nextMoveX == -1)
-                    {
-                        spriteRenderer.flipX = true;
-                    }
                 }
-                IsTriggerH = false;
+                IsTriggerH_R = false;
+                IsTriggerH_L = false;
             }
-            if (IsTriggerV == true)
+            if ((IsTriggerV_T == true) || (IsTriggerV_B == true))
             {
                 if (Bubble.gameObject.activeSelf == true)
                 {
                     nextMoveY *= -1;
                 }
-                IsTriggerV = false;
+                IsTriggerV_T = false;
+                IsTriggerV_B = false;
             }
             CancelInvoke();
             Invoke("Think", 5);
             IsTrigger = false;
         }
+
+        if (nextMoveX == 1)
+        {
+            spriteRenderer.flipX = true;
+
+        }
+        if (nextMoveX == -1)
+        {
+            spriteRenderer.flipX = false;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject.name);
-        if (collision.gameObject.name == "SquareH")
+        IsTrigger = true;
+        if (collision.gameObject.name == "SquareH_R")
         {
-            IsTrigger = true;
-            IsTriggerH = true;
+            IsTriggerH_R = true;
         }
-        if(collision.gameObject.name == "SquareV")
+        else if (collision.gameObject.name == "SquareH_L")
         {
-            IsTrigger = true;
-            IsTriggerV = true;
+            IsTriggerH_L = true;
         }
+        if (collision.gameObject.name == "SquareV_T")
+        {
+            IsTriggerV_T = true;
+        }
+        else if (collision.gameObject.name == "SquareV_B")
+        {
+            IsTriggerV_B = true;
+        }
+    }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "SquareH_R")
+        {
+            StartTrigger = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -110,19 +140,10 @@ public class GuestController : MonoBehaviour
         if (nextMoveX != 0 || nextMoveY != 0)
         {
             animator.SetInteger("Status", 1);
-            if (nextMoveX == 1)
-            {
-                spriteRenderer.flipX = true;
-
-            }
-            if (nextMoveX == -1)
-            {
-                spriteRenderer.flipX = false;
-            }
         }
         else if (nextMoveX == 0 && nextMoveY == 0)
         {
-            int status = Random.Range(0, 1);
+            int status = Random.Range(-1, 2);
             animator.SetInteger("Status", status);
         }
 
