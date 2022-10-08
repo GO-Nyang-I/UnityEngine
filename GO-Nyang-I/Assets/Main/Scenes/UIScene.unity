@@ -7401,6 +7401,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waterCount: {fileID: 1137502208}
   _coldBrewCount: {fileID: 194900726}
+  _liptonCount: {fileID: 464593063}
   _coffeeCount: {fileID: 1575482019}
   _iceteaCount: {fileID: 1441945544}
 --- !u!1 &882761052
