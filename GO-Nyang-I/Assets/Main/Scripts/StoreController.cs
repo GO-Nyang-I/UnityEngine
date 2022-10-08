@@ -130,6 +130,9 @@ namespace Assets.Main.Scripts
             _playerData.Water += WaterCount;
             _playerData.Coldbrew += ColdbrewCount;
             _playerData.Lipton += LiptonCount;
+            _playerData.PlayerStar += (_playerData.Water * BuyExp
+                                    + _playerData.Coldbrew * BuyExp
+                                    + _playerData.Lipton * BuyExp);
         }
 
     }

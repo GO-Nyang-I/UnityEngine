@@ -36,7 +36,7 @@ public class GuestController : MonoBehaviour
 
     public void OnTouchedDrink()
     {
-        bool IsBuy = GameControl.GetComponent<Assets.Main.Scripts.GameController>().Buy(DrinkId);
+        bool IsBuy = GameControl.GetComponent<Assets.Main.Scripts.GameController>().Sell(DrinkId);
         if (IsBuy == true)
         {
             AudioManager.GetComponent<AudioController>().OnPlayCatSound();

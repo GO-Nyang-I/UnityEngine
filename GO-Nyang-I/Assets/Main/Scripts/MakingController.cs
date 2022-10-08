@@ -169,6 +169,7 @@ namespace Assets.Main.Scripts
             _playerData.Coffee += CoffeeCount;
             _playerData.Icetea += IceteaCount;
             _playerData.PlayerCan += TotalPrice;
+            _playerData.PlayerStar += (_playerData.Coffee * MakingExp + _playerData.Icetea * MakingExp);
         }
 
     }

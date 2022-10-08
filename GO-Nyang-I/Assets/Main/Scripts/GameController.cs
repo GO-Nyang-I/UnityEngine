@@ -27,22 +27,27 @@ namespace Assets.Main.Scripts
 
         private int QuitEscape = 0;
 
-        [SerializeField] private const int CoffeeExp = 3;
-        [SerializeField] private const int IceteaExp = 5;
+        [SerializeField] protected const int BuyExp = 1;
+        [SerializeField] protected const int MakingExp = 2;
+        [SerializeField] protected const int SellExp = 3;
 
         void Start()
         {
-            _playerData = new GameData.PlayerData();
+            if (_playerData == null)
+            {
+                _playerData = new GameData.PlayerData();
 
-            _userGameplayData = GameKitFeature<UserGameplayData>.Get();
+                _userGameplayData = GameKitFeature<UserGameplayData>.Get();
 
-            _userGameplayData.TryForceSynchronizeAndExecute(
-               CreatePlayerDataBundle,
-               () =>
-               {
+                _userGameplayData.TryForceSynchronizeAndExecute(
+                   CreatePlayerDataBundle,
+                   () =>
+                   {
                    // Non-recoverable error. Here you should display an error message informing the player that it isn't possible to continue.
                    Debug.LogError("Attempt to sync gameplay data failed.");
-               });
+                   });
+            }
+            
         }
 
         private void Update()
@@ -166,7 +171,7 @@ namespace Assets.Main.Scripts
             });
         }
 
-        public bool Buy(int DrinkId)
+        public bool Sell(int DrinkId)
         {
             bool IsOkay = false;
 
@@ -175,7 +180,7 @@ namespace Assets.Main.Scripts
                 if (_playerData.Coffee > 0)
                 {
                     _playerData.Coffee--;
-                    _playerData.PlayerStar += (_playerData.Coffee * CoffeeExp);
+                    _playerData.PlayerStar += (_playerData.Coffee * SellExp);
                     IsOkay = true;
                 }
                 else
@@ -188,7 +193,7 @@ namespace Assets.Main.Scripts
                 if (_playerData.Icetea > 0)
                 {
                     _playerData.Icetea--;
-                    _playerData.PlayerStar += (_playerData.Icetea * IceteaExp);
+                    _playerData.PlayerStar += (_playerData.Icetea * SellExp);
                     IsOkay = true;
                 }
                 else
