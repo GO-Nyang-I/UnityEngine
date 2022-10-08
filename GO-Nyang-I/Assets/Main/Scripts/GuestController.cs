@@ -15,6 +15,7 @@ public class GuestController : MonoBehaviour
     public int DrinkId;
     bool IsTrigger = false;
     bool StartTrigger = false;
+    bool GrabityTrigger = false;
     bool IsTriggerH_R = false;
     bool IsTriggerH_L = false;
     bool IsTriggerV_T = false;
@@ -57,6 +58,17 @@ public class GuestController : MonoBehaviour
             CancelInvoke();
             Invoke("Think", 5);
             StartTrigger = false;
+        }
+
+        if(GrabityTrigger == true)
+        {
+            if (Bubble.gameObject.activeSelf == true)
+            {
+                nextMoveY = 1;
+            }
+            CancelInvoke();
+            Invoke("Think", 5);
+            GrabityTrigger = false;
         }
 
         if (IsTrigger == true)
@@ -121,6 +133,11 @@ public class GuestController : MonoBehaviour
         if (collision.gameObject.name == "SquareH_R")
         {
             StartTrigger = true;
+        }
+
+        if (collision.gameObject.name == "SquareV_B")
+        {
+            GrabityTrigger = true;
         }
     }
 
