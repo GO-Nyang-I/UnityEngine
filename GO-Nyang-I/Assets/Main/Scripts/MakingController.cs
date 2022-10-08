@@ -119,7 +119,7 @@ namespace Assets.Main.Scripts
                 IceteaCount++;
                 TotalPrice += IceteaPrice;
 
-                if (_playerData.Lipton < IceteaCount)
+                if (_playerData.Lipton < (IceteaCount*2))
                 {
                     if (ColorUtility.TryParseHtmlString(RedColorCode, out RedColor))
                     {
@@ -167,7 +167,13 @@ namespace Assets.Main.Scripts
         void OnClickedMakingConfirmBtn()
         {
             _playerData.Coffee += CoffeeCount;
+            _playerData.Water -= CoffeeCount;
+            _playerData.Coldbrew -= CoffeeCount;
+
             _playerData.Icetea += IceteaCount;
+            _playerData.Water -= IceteaCount;
+            _playerData.Lipton -= (IceteaCount*2);
+
             _playerData.PlayerCan += TotalPrice;
             _playerData.PlayerStar += (_playerData.Coffee * MakingExp + _playerData.Icetea * MakingExp);
         }
