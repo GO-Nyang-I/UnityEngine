@@ -148,8 +148,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 213392454}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.237, y: -0.706, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -3.05, y: -0.76, z: 0}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2026341267}
@@ -285,7 +285,7 @@ Transform:
   m_GameObject: {fileID: 368274806}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2026341267}
@@ -303,7 +303,7 @@ GameObject:
   - component: {fileID: 373374430}
   - component: {fileID: 373374429}
   m_Layer: 0
-  m_Name: SquareV
+  m_Name: SquareV_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -317,7 +317,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 373374427}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.52, y: -11.5, z: 0}
+  m_LocalPosition: {x: 0.52, y: -10.5, z: 0}
   m_LocalScale: {x: 18.000462, y: 0.9645288, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -427,7 +427,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 477058153}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.546, y: -1.15, z: 0}
+  m_LocalPosition: {x: -3.29, y: -1.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -651,6 +651,18 @@ MonoBehaviour:
         - m_Target: {fileID: 1151920539}
           m_TargetAssemblyTypeName: GuestController, Assembly-CSharp
           m_MethodName: OnTouchedDrink
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1570127519}
+          m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+          m_MethodName: SetMakingAnimaition
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1233,7 +1245,7 @@ GameObject:
   - component: {fileID: 1336785205}
   - component: {fileID: 1336785204}
   m_Layer: 0
-  m_Name: SquareH
+  m_Name: SquareH_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1247,7 +1259,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1336785202}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.13, y: -4.31, z: 0}
+  m_LocalPosition: {x: -5.09, y: -4.4, z: 0}
   m_LocalScale: {x: 0.80432457, y: 24.480427, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1474,6 +1486,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1570127519}
+          m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+          m_MethodName: SetMakingAnimaition
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1469749179
 GameObject:
   m_ObjectHideFlags: 0
@@ -1499,7 +1523,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1469749179}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.63, y: -1.92, z: 0}
+  m_LocalPosition: {x: 3.403, y: -1.81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1570,7 +1594,7 @@ GameObject:
   - component: {fileID: 1507386763}
   - component: {fileID: 1507386762}
   m_Layer: 0
-  m_Name: SquareV
+  m_Name: SquareV_T
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1680,6 +1704,7 @@ GameObject:
   - component: {fileID: 1570127518}
   - component: {fileID: 1570127517}
   - component: {fileID: 1570127515}
+  - component: {fileID: 1570127519}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1774,6 +1799,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1570127519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570127514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9d5cbb97f1b3374081c3f362a288b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1589425876
 GameObject:
   m_ObjectHideFlags: 0
@@ -1799,7 +1836,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1589425876}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.38, y: -0.47, z: 0}
+  m_LocalPosition: {x: -0.46, y: -0.43, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1914,7 +1951,7 @@ GameObject:
   - component: {fileID: 1689664691}
   - component: {fileID: 1689664690}
   m_Layer: 0
-  m_Name: SquareH
+  m_Name: SquareH_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1928,7 +1965,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1689664688}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.68, y: -4.23, z: 0}
+  m_LocalPosition: {x: 5.55, y: -4.18, z: 0}
   m_LocalScale: {x: 0.80432457, y: 24.480427, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2490,7 +2527,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2110612308}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.79, y: -9.28, z: 0}
+  m_LocalPosition: {x: 7.79, y: -2.45, z: 0}
   m_LocalScale: {x: 1.6, y: 1.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
