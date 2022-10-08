@@ -33,9 +33,6 @@ namespace Assets.Main.Scripts
         [SerializeField] private int IceteaCount = 0;
         [SerializeField] private int TotalPrice  = 0;
 
-        [SerializeField] private const int CoffeePrice = 30;
-        [SerializeField] private const int IceteaPrice = 20;
-
         [SerializeField] private const string RedColorCode = "#FF5733";
         [SerializeField] private const string BlackColorCode = "#5E6164";
         Color RedColor;
@@ -174,7 +171,6 @@ namespace Assets.Main.Scripts
             _playerData.Water -= IceteaCount;
             _playerData.Lipton -= (IceteaCount*2);
 
-            _playerData.PlayerCan += TotalPrice;
             _playerData.PlayerStar += (_playerData.Coffee * MakingExp + _playerData.Icetea * MakingExp);
         }
 

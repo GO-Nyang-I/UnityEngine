@@ -31,10 +31,6 @@ namespace Assets.Main.Scripts
         [SerializeField] private int LiptonCount = 0;
         [SerializeField] private int TotalCoin = 0;
 
-        [SerializeField] private const int WaterPrice = 10;
-        [SerializeField] private const int ColdbrewPrice = 10;
-        [SerializeField] private const int LiptonPrice = 5;
-
         void Start()
         {
             _waterPlusBtn.onClick.AddListener(OnPlusWaterCount);

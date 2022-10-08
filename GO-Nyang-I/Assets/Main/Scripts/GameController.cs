@@ -27,9 +27,18 @@ namespace Assets.Main.Scripts
 
         private int QuitEscape = 0;
 
+        // 경험치
         [SerializeField] protected const int BuyExp = 1;
         [SerializeField] protected const int MakingExp = 2;
         [SerializeField] protected const int SellExp = 3;
+
+        // 가격
+        [SerializeField] protected const int WaterPrice = 10;
+        [SerializeField] protected const int ColdbrewPrice = 10;
+        [SerializeField] protected const int LiptonPrice = 5;
+
+        [SerializeField] protected const int CoffeePrice = 30;
+        [SerializeField] protected const int IceteaPrice = 20;
 
         void Start()
         {
@@ -180,6 +189,7 @@ namespace Assets.Main.Scripts
                 if (_playerData.Coffee > 0)
                 {
                     _playerData.Coffee--;
+                    _playerData.PlayerCan += CoffeePrice;
                     _playerData.PlayerStar += (_playerData.Coffee * SellExp);
                     IsOkay = true;
                 }
@@ -193,6 +203,7 @@ namespace Assets.Main.Scripts
                 if (_playerData.Icetea > 0)
                 {
                     _playerData.Icetea--;
+                    _playerData.PlayerCan += IceteaPrice;
                     _playerData.PlayerStar += (_playerData.Icetea * SellExp);
                     IsOkay = true;
                 }
