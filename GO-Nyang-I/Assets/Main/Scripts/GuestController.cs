@@ -16,6 +16,8 @@ public class GuestController : MonoBehaviour
     bool IsTrigger = false;
     bool StartTrigger = false;
     bool GrabityTrigger = false;
+    bool EndTrigger = false;
+    bool TopTrigger = false;
     bool IsTriggerH_R = false;
     bool IsTriggerH_L = false;
     bool IsTriggerV_T = false;
@@ -56,7 +58,7 @@ public class GuestController : MonoBehaviour
                 nextMoveX = -1;
             }
             CancelInvoke();
-            Invoke("Think", 5);
+            Invoke("Think", 3);
             StartTrigger = false;
         }
 
@@ -67,34 +69,56 @@ public class GuestController : MonoBehaviour
                 nextMoveY = 1;
             }
             CancelInvoke();
-            Invoke("Think", 5);
+            Invoke("Think", 3);
             GrabityTrigger = false;
         }
 
-        if (IsTrigger == true)
+        if(EndTrigger == true)
         {
-            if ((IsTriggerH_R == true) || (IsTriggerH_L == true))
+            if (Bubble.gameObject.activeSelf == true)
             {
-                if (Bubble.gameObject.activeSelf == true)
-                {
-                    nextMoveX *= -1;
-                }
-                IsTriggerH_R = false;
-                IsTriggerH_L = false;
-            }
-            if ((IsTriggerV_T == true) || (IsTriggerV_B == true))
-            {
-                if (Bubble.gameObject.activeSelf == true)
-                {
-                    nextMoveY *= -1;
-                }
-                IsTriggerV_T = false;
-                IsTriggerV_B = false;
+                nextMoveX = 1;
             }
             CancelInvoke();
-            Invoke("Think", 5);
-            IsTrigger = false;
+            Invoke("Think", 3);
+            EndTrigger = false;
         }
+
+        if (TopTrigger == true)
+        {
+            if (Bubble.gameObject.activeSelf == true)
+            {
+                nextMoveY = -1;
+            }
+            CancelInvoke();
+            Invoke("Think", 3);
+            TopTrigger = false;
+        }
+
+        //if (IsTrigger == true)
+        //{
+        //    if ((IsTriggerH_R == true) || (IsTriggerH_L == true))
+        //    {
+        //        if (Bubble.gameObject.activeSelf == true)
+        //        {
+        //            nextMoveX *= -1;
+        //        }
+        //        IsTriggerH_R = false;
+        //        IsTriggerH_L = false;
+        //    }
+        //    if ((IsTriggerV_T == true) || (IsTriggerV_B == true))
+        //    {
+        //        if (Bubble.gameObject.activeSelf == true)
+        //        {
+        //            nextMoveY *= -1;
+        //        }
+        //        IsTriggerV_T = false;
+        //        IsTriggerV_B = false;
+        //    }
+        //    CancelInvoke();
+        //    Invoke("Think", 5);
+        //    IsTrigger = false;
+        //}
 
         if (nextMoveX == 1)
         {
@@ -107,26 +131,26 @@ public class GuestController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        IsTrigger = true;
-        if (collision.gameObject.name == "SquareH_R")
-        {
-            IsTriggerH_R = true;
-        }
-        else if (collision.gameObject.name == "SquareH_L")
-        {
-            IsTriggerH_L = true;
-        }
-        if (collision.gameObject.name == "SquareV_T")
-        {
-            IsTriggerV_T = true;
-        }
-        else if (collision.gameObject.name == "SquareV_B")
-        {
-            IsTriggerV_B = true;
-        }
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    IsTrigger = true;
+    //    if (collision.gameObject.name == "SquareH_R")
+    //    {
+    //        IsTriggerH_R = true;
+    //    }
+    //    else if (collision.gameObject.name == "SquareH_L")
+    //    {
+    //        IsTriggerH_L = true;
+    //    }
+    //    if (collision.gameObject.name == "SquareV_T")
+    //    {
+    //        IsTriggerV_T = true;
+    //    }
+    //    else if (collision.gameObject.name == "SquareV_B")
+    //    {
+    //        IsTriggerV_B = true;
+    //    }
+    //}
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -135,9 +159,19 @@ public class GuestController : MonoBehaviour
             StartTrigger = true;
         }
 
+        if (collision.gameObject.name == "SquareH_L")
+        {
+            EndTrigger = true;
+        }
+
         if (collision.gameObject.name == "SquareV_B")
         {
             GrabityTrigger = true;
+        }
+
+        if (collision.gameObject.name == "SquareV_T")
+        {
+            TopTrigger = true;
         }
     }
 
